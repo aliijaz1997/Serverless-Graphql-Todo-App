@@ -31,7 +31,7 @@ const resolvers = {
           return {
             task : tasks.data.task,
             id : tasks.ts,
-            statusofthetask : tasks.data.status
+            statusofthetask : tasks.data.statusofthetask
           }
         })
       } catch (error) {
