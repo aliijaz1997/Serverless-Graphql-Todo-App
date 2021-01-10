@@ -19,7 +19,7 @@ const resolvers = {
   Query: {
     todo: async (parent, args, context) => {
       try {
-        var client = new faunadb.Client({ secret: "fnAD-uDWGkACB2cZcY9900jX220NPb0qHvsPOXPl" });
+        var client = new faunadb.Client({ secret: process.env.FaunaDb});
         var result = await client.query(
           q.Map(
             q.Paginate(q.Match(q.Index("tasksindex"))),
@@ -42,7 +42,7 @@ const resolvers = {
   Mutation: {
     addTask: async (_, {task}) => {
       try {
-        var client = new faunadb.Client({ secret: "fnAD-uDWGkACB2cZcY9900jX220NPb0qHvsPOXPl" });
+        var client = new faunadb.Client({ secret: process.env.FaunaDb });
         var result = await client.query(
           q.Create(
             q.Collection('tasks'),
